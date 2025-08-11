@@ -12,9 +12,9 @@ export default function Header() {
   const GOLD = "#D4AF37";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg relative">
+    <header className="sticky top-0 z-50 border-b border-[#d4af37]/20 shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg relative">
       {/* Gold gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-white/10 to-[#d4af37]/20 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 via-white/80 to-[#d4af37]/10 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* 3-column grid ensures perfect symmetry with the logo truly centered */}
@@ -67,7 +67,7 @@ export default function Header() {
             <NavLink href="/services" label="Services" />
             {/* Enhanced CTA */}
             <Link
-              href="/book-appointment"
+              href="/book"
               className="relative rounded-full px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-md gold-pulse overflow-hidden"
               style={{
                 color: GOLD,
@@ -102,7 +102,7 @@ export default function Header() {
               <MobileLink href="/services" label="Services" onClick={() => setOpen(false)} />
               <div className="pt-2">
                 <Link
-                  href="/book-appointment"
+                  href="/book"
                   onClick={() => setOpen(false)}
                   className="relative block w-full text-center rounded-full px-5 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-md gold-pulse overflow-hidden"
                   style={{

@@ -29,10 +29,10 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative text-white border-t border-[#d4af37]/30 backdrop-blur-lg overflow-hidden ${cinzel.className}`}
+      className={`relative text-gray-800 border-t border-[#d4af37]/30 backdrop-blur-lg overflow-hidden ${cinzel.className}`}
     >
       {/* Gold gradient overlay (matching navbar) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-white/10 to-[#d4af37]/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 via-white/80 to-[#d4af37]/10 pointer-events-none" />
 
       {/* Animated Golden Balls/Orbs */}
       <div className="absolute inset-0 pointer-events-none">
