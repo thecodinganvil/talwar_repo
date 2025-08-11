@@ -51,7 +51,7 @@ export default function Header() {
               <span className="sr-only">Talwar Interiors — Home</span>
               <div className="relative" style={{ width: "80px", height: "80px" }}>
                 <Image
-                  src="/assets/talwarlogo.svg"
+                  src="/assets/talwar_nobg.png"
                   alt="Talwar Interiors Logo"
                   fill
                   className="object-contain"
