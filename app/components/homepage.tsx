@@ -1,8 +1,13 @@
 import Image from "next/image";
+import { Cinzel } from "next/font/google";
+
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Homepage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div
+      className={`min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 ${cinzel.className}`}
+    >
       {/* Hero Section with Interior Photo */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -135,8 +140,8 @@ export default function Homepage() {
             Ready to Transform Your Space?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let's create the interior of your dreams together. Contact us for a
-            free consultation.
+            Let&apos;s create the interior of your dreams together. Contact us
+            for a free consultation.
           </p>
           <button className="bg-white text-gray-900 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300">
             Start Your Project
