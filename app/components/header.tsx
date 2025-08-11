@@ -12,23 +12,21 @@ export default function Header() {
   const GOLD = "#D4AF37";
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-white/20 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-white/20 shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg relative">
+      {/* Gold gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-white/10 to-[#d4af37]/20 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* 3-column grid ensures perfect symmetry with the logo truly centered */}
-        <div
-          className={`grid grid-cols-3 items-center h-20 ${cinzel.className}`}
-        >
+        <div className={`grid grid-cols-3 items-center h-20 ${cinzel.className}`}>
           {/* Left Links */}
-          <nav
-            aria-label="Primary left"
-            className="hidden md:flex justify-center gap-10"
-          >
+          <nav aria-label="Primary left" className="hidden md:flex justify-center gap-10">
             <NavLink href="/" label="Home" />
             <NavLink href="/portfolio" label="Portfolio" />
             <NavLink href="/gallery" label="Gallery" />
           </nav>
 
-          {/* Mobile menu button (left) */}
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setOpen((v) => !v)}
@@ -37,25 +35,11 @@ export default function Header() {
               aria-label={open ? "Close menu" : "Open menu"}
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 text-black/70 bg-white/60 backdrop-blur-sm"
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
                 {open ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 6h18M3 12h18M3 18h18"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M3 12h18M3 18h18" />
                 )}
               </svg>
             </button>
@@ -84,7 +68,7 @@ export default function Header() {
             {/* Enhanced CTA */}
             <Link
               href="/book-appointment"
-              className="relative rounded-full px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-md"
+              className="relative rounded-full px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-md gold-pulse overflow-hidden"
               style={{
                 color: GOLD,
                 border: `2px solid ${GOLD}`,
@@ -92,6 +76,10 @@ export default function Header() {
                   "linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 50%, transparent 100%)",
               }}
             >
+              <span
+                aria-hidden
+                className="pointer-events-none shimmer-mask absolute inset-0 rounded-full"
+              />
               <span className="relative z-10 font-bold tracking-wide">
                 Book an Appointment
               </span>
@@ -99,7 +87,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile sheet */}
+        {/* Mobile Menu */}
         <div
           id="mobile-nav"
           className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
@@ -108,33 +96,15 @@ export default function Header() {
         >
           <div className="mt-2 rounded-2xl border border-black/10 bg-white/90 backdrop-blur-md shadow-xl">
             <div className="px-3 py-2">
-              <MobileLink
-                href="/"
-                label="Home"
-                onClick={() => setOpen(false)}
-              />
-              <MobileLink
-                href="/portfolio"
-                label="Portfolio"
-                onClick={() => setOpen(false)}
-              />
-              <MobileLink
-                href="/gallery"
-                label="Gallery"
-                onClick={() => setOpen(false)}
-              />
-              <MobileLink
-                href="/services"
-                label="Services"
-                onClick={() => setOpen(false)}
-              />
-
+              <MobileLink href="/" label="Home" onClick={() => setOpen(false)} />
+              <MobileLink href="/portfolio" label="Portfolio" onClick={() => setOpen(false)} />
+              <MobileLink href="/gallery" label="Gallery" onClick={() => setOpen(false)} />
+              <MobileLink href="/services" label="Services" onClick={() => setOpen(false)} />
               <div className="pt-2">
-                {/* Enhanced CTA (mobile) */}
                 <Link
                   href="/book-appointment"
                   onClick={() => setOpen(false)}
-                  className="relative block w-full text-center rounded-full px-5 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-md"
+                  className="relative block w-full text-center rounded-full px-5 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-md gold-pulse overflow-hidden"
                   style={{
                     color: GOLD,
                     border: `2px solid ${GOLD}`,
@@ -142,6 +112,10 @@ export default function Header() {
                       "linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 50%, transparent 100%)",
                   }}
                 >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none shimmer-mask absolute inset-0 rounded-full"
+                  />
                   <span className="relative z-10 font-bold tracking-wide">
                     Book an Appointment
                   </span>
@@ -151,6 +125,7 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Styles */}
         <style jsx>{`
           /* Underline hover for links */
           .nav-link {
@@ -172,7 +147,7 @@ export default function Header() {
             transform: scaleX(1);
           }
 
-          /* Continuous shimmer across the button */
+          /* Shimmer effect */
           .shimmer-mask {
             background: linear-gradient(
               90deg,
@@ -191,35 +166,6 @@ export default function Header() {
             animation: pulseGold 2.6s ease-in-out infinite;
           }
 
-          /* Floating particles */
-          .particle {
-            position: absolute;
-            display: block;
-            width: 5px;
-            height: 5px;
-            background: ${GOLD};
-            border-radius: 9999px;
-            opacity: 0.85;
-            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.8));
-            animation: floatParticle 3s ease-in-out infinite;
-          }
-          .particle:nth-child(1) {
-            animation-delay: 0.1s;
-          }
-          .particle:nth-child(2) {
-            width: 6px;
-            height: 6px;
-            opacity: 0.95;
-            animation-delay: 0.6s;
-          }
-          .particle:nth-child(3) {
-            width: 4px;
-            height: 4px;
-            opacity: 0.8;
-            animation-delay: 1s;
-          }
-
-          /* Keyframes */
           @keyframes shimmer {
             0% {
               transform: translateX(-120%);
@@ -239,20 +185,6 @@ export default function Header() {
               box-shadow: 0 0 22px rgba(212, 175, 55, 0.75),
                 inset 0 0 10px rgba(212, 175, 55, 0.35);
               opacity: 1;
-            }
-          }
-          @keyframes floatParticle {
-            0% {
-              transform: translateY(0) translateX(0) scale(1);
-              opacity: 0.8;
-            }
-            50% {
-              transform: translateY(-6px) translateX(2px) scale(1.08);
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(0) translateX(0) scale(1);
-              opacity: 0.85;
             }
           }
         `}</style>
