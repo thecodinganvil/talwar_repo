@@ -49,9 +49,9 @@ export default function Header() {
           <div className="flex items-center justify-center">
             <Link href="/" className="group inline-flex items-center">
               <span className="sr-only">Talwar Interiors — Home</span>
-              <div className="relative h-12 w-12">
+              <div className="relative" style={{ width: "80px", height: "80px" }}>
                 <Image
-                  src="/assets/talwarlogo.png"
+                  src="/assets/talwarlogo.svg"
                   alt="Talwar Interiors Logo"
                   fill
                   className="object-contain"
