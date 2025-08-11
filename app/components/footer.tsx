@@ -273,7 +273,7 @@ export default function Footer() {
             {/* Legal Links */}
             <div className="flex space-x-6 text-sm">
               <a
-                href="#"
+                href="/terms_conditions"
                 className="text-black/80 hover:text-[#D4AF37] transition-all duration-300 hover:scale-105 group"
               >
                 <span className="group-hover:bg-[#d4af37]/10 px-2 py-1 rounded transition-all duration-300">
@@ -281,7 +281,7 @@ export default function Footer() {
                 </span>
               </a>
               <a
-                href="#"
+                href="/privacy_policy"
                 className="text-black/80 hover:text-[#D4AF37] transition-all duration-300 hover:scale-105 group"
               >
                 <span className="group-hover:bg-[#d4af37]/10 px-2 py-1 rounded transition-all duration-300">
